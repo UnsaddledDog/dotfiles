@@ -37,6 +37,15 @@
 				}
       ];
     };
+	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+		system = "x86_64-linux";
+	      specialArgs = {inherit inputs;};
+	      modules = [
+		./hosts/nixos/configuration.nix
+					#./modules/home-manager
+		inputs.home-manager.nixosModules.default
+	      ];
+	    };
 
     # Expose the package set, including overlays, for convenience.
     #darwinPackages = self.darwinConfigurations."simple".pkgs;
