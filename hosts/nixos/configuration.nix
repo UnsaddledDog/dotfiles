@@ -95,6 +95,8 @@
 	#	};
 	#};
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   # Install firefox.
   programs.firefox.enable = true;
 
