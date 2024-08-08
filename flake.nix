@@ -1,5 +1,5 @@
 {
-  description = "Example Darwin system flake";
+  description = "UnsaddledDog's flake with support for nixos, nix and darwin";
 
   inputs = {
     nixpkgs = {
@@ -12,14 +12,19 @@
     };
 
     home-manager = {
-  	url = "github:nix-community/home-manager";
+  	  url = "github:nix-community/home-manager";
      	inputs.nixpkgs.follows = "nixpkgs";
     };
 
 		nixvim = {
-        url = "github:nix-community/nixvim";
-        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      #url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
   };
 
@@ -37,15 +42,22 @@
 				}
       ];
     };
-	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-		system = "x86_64-linux";
-	      specialArgs = {inherit inputs;};
-	      modules = [
-		./hosts/nixos/configuration.nix
-					#./modules/home-manager
-		inputs.home-manager.nixosModules.default
-	      ];
-	    };
+
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/nixos/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.gergo = import ./hosts/nixos/home.nix;
+            extraSpecialArgs = { inherit inputs; };
+          };
+        }
+      ];
+    };
 
     # Expose the package set, including overlays, for convenience.
     #darwinPackages = self.darwinConfigurations."simple".pkgs;

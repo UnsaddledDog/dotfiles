@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-	inputs.home-manager.nixosModules.default
+	    inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -47,9 +47,8 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -85,13 +84,35 @@
     description = "Gergo";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
     ];
   };
 
+	#home-manager = {
+	#	extraSpecialArgs = {inherit inputs;};
+	#	users = {
+	#		"gergo" = import ./home.nix;
+	#	};
+	#};
+
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Enable hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  };
+
+  #xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  hardware = {
+    graphics.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -99,9 +120,24 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim git # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    git wget curl
+    kitty waybar hyprpaper rofi-wayland
   ];
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
+  environment.sessionVariables = {
+    # If your cursor becomes invisible
+    WLR_NO_HARDWARE_CURSORS = "1";
+
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+
+    # proton
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "~/.steam/root/compatibilitytools.d";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
