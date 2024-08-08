@@ -1,6 +1,12 @@
+{ pkgs, inputs, system, ... }:
+
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    plugins = [
+      # inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".borders-plus-plus
+      inputs.hyprland.packages.${pkgs.system}.default.stdenv.mkDerivation.borders-plus-plus
+    ];
 
     settings = {
       exec-once = [
@@ -100,18 +106,18 @@
         "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
 
          # window control
-        "$mainMod SHIFT, left, movewindow, l"
-        "$mainMod SHIFT, right, movewindow, r"
-        "$mainMod SHIFT, up, movewindow, u"
-        "$mainMod SHIFT, down, movewindow, d"
-        "$mainMod CTRL, left, resizeactive, -80 0"
-        "$mainMod CTRL, right, resizeactive, 80 0"
-        "$mainMod CTRL, up, resizeactive, 0 -80"
-        "$mainMod CTRL, down, resizeactive, 0 80"
-        "$mainMod ALT, left, moveactive,  -80 0"
-        "$mainMod ALT, right, moveactive, 80 0"
-        "$mainMod ALT, up, moveactive, 0 -80"
-        "$mainMod ALT, down, moveactive, 0 80"
+        "$mainMod SHIFT, h, movewindow, l"
+        "$mainMod SHIFT, l, movewindow, r"
+        "$mainMod SHIFT, k, movewindow, u"
+        "$mainMod SHIFT, j, movewindow, d"
+        "$mainMod CTRL, h, resizeactive, -80 0"
+        "$mainMod CTRL, l, resizeactive, 80 0"
+        "$mainMod CTRL, k, resizeactive, 0 -80"
+        "$mainMod CTRL, j, resizeactive, 0 80"
+        "$mainMod ALT, h, moveactive,  -80 0"
+        "$mainMod ALT, l, moveactive, 80 0"
+        "$mainMod ALT, k, moveactive, 0 -80"
+        "$mainMod ALT, j, moveactive, 0 80"
       ];
 
       # mouse binding

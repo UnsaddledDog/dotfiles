@@ -2,7 +2,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      wallpaper = ",~/Pictures/monochrome_mountain.jpg";
+      preload = ["~/nix-config/modules/hyprpaper/wallpapers/monochrome_mountain.jpg"];
+      wallpaper = ",~/nix-config/modules/hyprpaper/wallpapers/monochrome_mountain.jpg";
     };
   };
 }

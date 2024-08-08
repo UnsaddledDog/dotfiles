@@ -26,9 +26,14 @@
       #url = "github:hyprwm/Hyprland";
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, ... }@inputs: {
+  outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, hyprland, ... }@inputs: {
     darwinConfigurations.darwin = nix-darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
@@ -56,6 +61,7 @@
             extraSpecialArgs = { inherit inputs; };
           };
         }
+        # inputs.hyprland.homeManagerModules.default
       ];
     };
 
