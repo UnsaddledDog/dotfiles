@@ -38,7 +38,6 @@
       system = "x86_64-darwin";
       modules = [
 				./hosts/darwin/configuration.nix	
-
 				home-manager.darwinModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;

@@ -1,14 +1,25 @@
 { pkgs, inputs, system, ... }:
 
 {
+  home.packages = with pkgs; [
+    hyprlandPlugins.borders-plus-plus
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [
-      # inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".borders-plus-plus
-      #inputs.hyprland.packages.${pkgs.system}.default.stdenv.mkDerivation.borders-plus-plus
+
+    plugins = with pkgs; [
+      hyprlandPlugins.borders-plus-plus
     ];
 
     settings = {
+
+      plugin = {
+        borders-plus-plus = {
+          add_borders = 3;
+        };
+      };
+
       exec-once = [
         "waybar &"
       ];
