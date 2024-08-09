@@ -5,7 +5,7 @@
     enable = true;
     plugins = [
       # inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".borders-plus-plus
-      inputs.hyprland.packages.${pkgs.system}.default.stdenv.mkDerivation.borders-plus-plus
+      #inputs.hyprland.packages.${pkgs.system}.default.stdenv.mkDerivation.borders-plus-plus
     ];
 
     settings = {
