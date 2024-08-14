@@ -124,7 +124,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git wget curl
-    kitty waybar hyprpaper rofi-wayland
+    kitty waybar hyprpaper rofi-wayland hyprlock hyprcursor
+    xdg-desktop-portal-hyprland
   ];
 
   fonts.packages = with pkgs; [

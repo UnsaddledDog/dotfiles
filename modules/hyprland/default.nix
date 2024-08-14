@@ -16,7 +16,9 @@
 
       plugin = {
         borders-plus-plus = {
-          add_borders = 3;
+          add_borders = 1;
+          border_size_1 = 7;
+          "col.border_1" = "rgb(191724)";
         };
       };
 
@@ -34,12 +36,12 @@
         "$mainMod" = "SUPER";
         layout = "dwindle";
 
-        gaps_in = 5;
-        gaps_out = 10;
-        border_size = 4;
+        gaps_in = 8;
+        gaps_out = 16;
+        border_size = 5;
 
         "col.active_border" = "rgb(eb6f92)";
-        "col.inactive_border" = "rgb(ebbcba)";
+        "col.inactive_border" = "rgb(191724)";
 
         border_part_of_window = false;
         no_border_on_floating = false;
@@ -64,12 +66,12 @@
         rounding = 0;
 
         drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
+        shadow_range = 60;
+        shadow_render_power = 4;
         "col.shadow" = "rgba(1a1a1aee)";
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 3;
           passes = 1;
         };
@@ -139,7 +141,7 @@
     };
 
     extraConfig = ''
-      # exec-once = waybar &
+      monitor=,2560x1440@165,0x0,1
     '';
   };
 }

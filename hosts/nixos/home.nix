@@ -9,12 +9,15 @@
 		../../modules/kitty
 		../../modules/waybar
 		../../modules/hyprpaper
+		../../modules/rofi
 	];
   
 	programs.home-manager.enable = true;
 
 	home.packages = with pkgs; [
 		fastfetch
+    macchina
+    nitch
 	];
 
 	home.username = "gergo";
