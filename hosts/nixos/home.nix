@@ -11,17 +11,21 @@
 		../../modules/hyprpaper
 		../../modules/rofi
 	];
-  
-	programs.home-manager.enable = true;
 
-	home.packages = with pkgs; [
-		fastfetch
-    macchina
-    nitch
-	];
+  home = {
+    username = "gergo";
+    homeDirectory = "/home/gergo";
 
-	home.username = "gergo";
-	home.homeDirectory = "/home/gergo";
-	
-	home.stateVersion = "24.05";
+	  stateVersion = "24.05";
+
+    packages = with pkgs; [
+      fastfetch
+      macchina
+      nitch
+    ];
+  };
+
+	programs = {
+    home-manager.enable = true;
+  };
 }

@@ -60,11 +60,15 @@
             extraSpecialArgs = { inherit inputs; };
           };
         }
-        # inputs.hyprland.homeManagerModules.default
       ];
     };
 
-    # Expose the package set, including overlays, for convenience.
-    #darwinPackages = self.darwinConfigurations."simple".pkgs;
+	homeConfigurations.linux = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = {inherit inputs ;};
+      modules = [
+        ./hosts/linux/home.nix
+      ];
+    };
   };
 }

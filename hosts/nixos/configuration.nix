@@ -88,13 +88,6 @@
     ];
   };
 
-	#home-manager = {
-	#	extraSpecialArgs = {inherit inputs;};
-	#	users = {
-	#		"gergo" = import ./home.nix;
-	#	};
-	#};
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Install firefox.
