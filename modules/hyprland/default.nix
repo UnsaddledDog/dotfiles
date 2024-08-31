@@ -22,8 +22,15 @@
         };
       };
 
+      env = [
+        "XCURSOR_SIZE, 24"
+        # "WLR_NO_HARDWARE_CURSORS,1"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+      ];
+
       exec-once = [
-        "waybar &"
+        "hyprpanel &"
+        # "hyprctl setcursor rose-pine-hyprcursor 24"
       ];
 
       input = {
@@ -36,11 +43,11 @@
         "$mainMod" = "SUPER";
         layout = "dwindle";
 
-        gaps_in = 8;
-        gaps_out = 16;
+        gaps_in = 4;
+        gaps_out = 8;
         border_size = 5;
 
-        "col.active_border" = "rgb(eb6f92)";
+        "col.active_border" = "rgb(21202e)";
         "col.inactive_border" = "rgb(191724)";
 
         border_part_of_window = false;
@@ -63,7 +70,7 @@
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 3;
 
         drop_shadow = true;
         shadow_range = 60;
@@ -88,7 +95,8 @@
         "$mainMod, E, exec, nautilus"
         "$mainMod, SPACE, exec, rofi -show drun"
         "$mainMod, Q, killactive"
-        "$mainMod, M, exit"
+        "$mainMod, DELETE, exit"
+        "$mainMod, BACKSPACE, exec, hyprlock"
 
         # switch focus
         "$mainMod, H, movefocus, l"

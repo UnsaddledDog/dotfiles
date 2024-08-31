@@ -31,9 +31,17 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+    };
+
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+    };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, hyprland, ... }@inputs: {
+  outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, hyprland, hyprpanel, ... }@inputs: {
     darwinConfigurations.darwin = nix-darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
@@ -52,6 +60,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/nixos/configuration.nix
+        ./overlays
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;

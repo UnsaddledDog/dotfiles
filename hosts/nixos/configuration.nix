@@ -13,8 +13,11 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  /* boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true; */
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -100,8 +103,8 @@
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
-  #xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   hardware = {
     graphics.enable = true;
@@ -113,12 +116,24 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable OpenRGB
+  services.hardware.openrgb = {
+    enable = true;
+  };
+
+  # Enable PAM for Hyrplock
+  security.pam.services.hyprlock = {};
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git wget curl
-    kitty waybar hyprpaper rofi-wayland hyprlock hyprcursor
-    xdg-desktop-portal-hyprland
+    git wget curl ntfs3g
+    kitty waybar hyprpaper rofi-wayland hyprlock hyprcursor hyprpanel hyprpicker
+    xdg-desktop-portal-hyprland gpustat gpu-screen-recorder
+    tidal-hifi vesktop yazi mpv yt-dlp qbittorrent ddrescue node2nix
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    swww waypaper
+    nodePackages.peerflix protonvpn-gui
   ];
 
   fonts.packages = with pkgs; [
