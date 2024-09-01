@@ -5,6 +5,7 @@
 	  inputs.nixvim.homeManagerModules.nixvim
 	  ../../modules/zsh
 	  ../../modules/nvim
+    ../../modules/kitty
   ];
 
   home = {
@@ -15,7 +16,6 @@
 
     packages = with pkgs; [ 
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      kitty
     ];
   };
 
