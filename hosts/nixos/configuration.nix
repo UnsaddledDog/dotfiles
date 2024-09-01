@@ -13,11 +13,17 @@
     ];
 
   # Bootloader.
-  /* boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true; */
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  /* boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+    };
+  }; */
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -127,7 +133,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git wget curl ntfs3g
+    git wget curl ntfs3g os-prober
     kitty waybar hyprpaper rofi-wayland hyprlock hyprcursor hyprpanel hyprpicker
     xdg-desktop-portal-hyprland gpustat gpu-screen-recorder
     tidal-hifi vesktop yazi mpv yt-dlp qbittorrent ddrescue node2nix
