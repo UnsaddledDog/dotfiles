@@ -140,6 +140,7 @@
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     swww waypaper
     nodePackages.peerflix protonvpn-gui
+    prismlauncher
   ];
 
   fonts.packages = with pkgs; [

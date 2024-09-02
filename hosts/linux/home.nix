@@ -5,7 +5,6 @@
 	  inputs.nixvim.homeManagerModules.nixvim
 	  ../../modules/zsh
 	  ../../modules/nvim
-    ../../modules/kitty
   ];
 
   home = {

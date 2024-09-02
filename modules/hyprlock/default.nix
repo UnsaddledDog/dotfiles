@@ -13,7 +13,7 @@
 
       background = [
         {
-          path = "${../../resources/wallpapers/monochrome_mountain.jpg}";
+          path = "${../../assets/wallpapers/monochrome_mountain.jpg}";
           blur_passes = 3;
           blur_size = 5;
         }

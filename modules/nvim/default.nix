@@ -8,6 +8,10 @@
     ./options.nix
   ];
 
+  home.packages = with pkgs; [
+    ripgrep
+  ];
+
 	programs.nixvim = {
 		enable = true;
 		
