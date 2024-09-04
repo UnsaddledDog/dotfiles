@@ -1,5 +1,5 @@
 {
-	programs.nixvim.plugins = {
+    programs.nixvim.plugins = {
         lsp = {
             enable = true;
 
@@ -21,5 +21,5 @@
                 "K" = "hover";
             };
         };
-	};
+    };
 }

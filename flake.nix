@@ -13,10 +13,10 @@
 
         home-manager = {
   	        url = "github:nix-community/home-manager";
-     	    inputs.nixpkgs.follows = "nixpkgs";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
-		nixvim = {
+        nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
@@ -43,13 +43,13 @@
         darwinConfigurations.darwin = nix-darwin.lib.darwinSystem {
             system = "x86_64-darwin";
             modules = [
-			    ./hosts/darwin/configuration.nix	
-			    home-manager.darwinModules.home-manager {
-				    home-manager.useGlobalPkgs = true;
-					home-manager.useUserPackages = true;
-					home-manager.users.gergo = import ./hosts/darwin/home.nix;
-					home-manager.extraSpecialArgs = { inherit inputs; };
-				}
+                ./hosts/darwin/configuration.nix	
+                home-manager.darwinModules.home-manager {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.gergo = import ./hosts/darwin/home.nix;
+                    home-manager.extraSpecialArgs = { inherit inputs; };
+                }
             ];
         };
 

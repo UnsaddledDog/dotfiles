@@ -2,23 +2,23 @@
 
 {
     # Enable flakes
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-	# Allow unfree packages  
-	nixpkgs.config.allowUnfree = true;
+    # Allow unfree packages  
+    nixpkgs.config.allowUnfree = true;
 
-	# Enable nix-daemon service
-	services.nix-daemon.enable = true;
+    # Enable nix-daemon service
+    services.nix-daemon.enable = true;
 
-	# Set user
-	users.users.gergo = {
-		name = "gergo";
-		home = "/Users/gergo";
-		shell = pkgs.zsh;
-	};
+    # Set user
+    users.users.gergo = {
+        name = "gergo";
+        home = "/Users/gergo";
+        shell = pkgs.zsh;
+    };
 
-	environment.systemPackages = with pkgs; [
-	];
+    environment.systemPackages = with pkgs; [
+    ];
 
-	programs.zsh.enable = true;
+    programs.zsh.enable = true;
 }

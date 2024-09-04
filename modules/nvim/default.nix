@@ -12,7 +12,7 @@
         ripgrep
     ];
 
-	programs.nixvim = {
+    programs.nixvim = {
         enable = true;
 		
         defaultEditor = true;
@@ -20,13 +20,13 @@
         vimAlias = true;
         vimdiffAlias = true;
 
-		colorschemes.rose-pine.enable = true;
+        colorschemes.rose-pine.enable = true;
 
 		plugins = {
-			transparent.enable = true;
-			treesitter.enable = true;
-			neo-tree.enable = true;
-			comment.enable = true;
+            transparent.enable = true;
+            treesitter.enable = true;
+            neo-tree.enable = true;
+            comment.enable = true;
 
             lualine = {
                 enable = true;
@@ -41,10 +41,10 @@
             telescope = {
                 enable = true;
             };
-		};
+        };
 
-		extraPlugins = with pkgs.vimPlugins; [
-		] ++ [
+        extraPlugins = with pkgs.vimPlugins; [
+        ] ++ [
 		    /* (pkgs.vimUtils.buildVimPlugin {
                 pname = "tokyodark";
                 src = pkgs.fetchFromGitHub {
@@ -55,6 +55,6 @@
                 };
 		        version = "";
             }) */
-		];
-	};
+        ];
+    };
 }

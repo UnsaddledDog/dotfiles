@@ -29,9 +29,9 @@
             updatetime = 50;
         };
 
-	    globals = {
+        globals = {
             mapleader = " ";
             maplocalleader = " ";
-	    };
+        };
     };
 }
