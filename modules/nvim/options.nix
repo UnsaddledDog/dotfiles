@@ -1,37 +1,37 @@
 {
-  programs.nixvim = { 
-    opts = {
-      number = true;
-      relativenumber = true;
+    programs.nixvim = { 
+        opts = {
+            number = true;
+            relativenumber = true;
 
-      tabstop = 2;
-      softtabstop = 2;
-      shiftwidth = 2;
-      expandtab = true;
+            tabstop = 4;
+            softtabstop = 4;
+            shiftwidth = 4;
+            expandtab = true;
 
-      smartindent = true;
-      wrap = false;
-      termguicolors = true;
+            smartindent = true;
+            wrap = false;
+            termguicolors = true;
 
-      mouse = "a";
-      guicursor = "";
-      clipboard = "unnamedplus";
-      
-      hlsearch = false;
-      incsearch = true;
+            mouse = "a";
+            guicursor = "";
+            clipboard = "unnamedplus";
+            
+            hlsearch = false;
+            incsearch = true;
 
-      swapfile = false;
-      backup = false;
+            swapfile = false;
+            backup = false;
 
-      scrolloff = 8;
-      signcolumn = "yes";
+            scrolloff = 8;
+            signcolumn = "yes";
 
-      updatetime = 50;
+            updatetime = 50;
+        };
+
+	    globals = {
+            mapleader = " ";
+            maplocalleader = " ";
+	    };
     };
-
-		globals = {
-			mapleader = " ";
-			maplocalleader = " ";
-		};
-  };
 }

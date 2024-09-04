@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  nixpkgs.overlays = [
-    inputs.hyprpanel.overlay
-  ];
+    nixpkgs.overlays = [
+        inputs.hyprpanel.overlay
+    ];
 }

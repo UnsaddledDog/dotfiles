@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, services, ... }:
 
 {
-	# Enable flakes
+    # Enable flakes
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	# Allow unfree packages  

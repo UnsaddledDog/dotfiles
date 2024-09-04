@@ -5,7 +5,7 @@
 		inputs.nixvim.homeManagerModules.nixvim
 		../../modules/nvim
 		../../modules/zsh
-    ../../modules/dev
+        ../../modules/dev
 	];
 
 	home = {
@@ -15,8 +15,6 @@
 	};
 
 	programs = {
-		home-manager = {
-			enable = true;
-		};
+		home-manager.enable = true;
 	};
 }

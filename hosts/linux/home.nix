@@ -1,31 +1,31 @@
 { inputs, pkgs, ... }: 
 
 {
-  imports = [
-	  inputs.nixvim.homeManagerModules.nixvim
-	  ../../modules/zsh
-	  ../../modules/nvim
-  ];
-
-  home = {
-    username = "gergo";
-    homeDirectory = "/home/gergo";
-
-    stateVersion = "24.05";
-
-    packages = with pkgs; [ 
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    imports = [
+        inputs.nixvim.homeManagerModules.nixvim
+        ../../modules/zsh
+        ../../modules/nvim
     ];
-  };
 
-  programs = {
-    home-manager.enable = true;
-    git.enable = true;
-  };
+    home = {
+        username = "gergo";
+        homeDirectory = "/home/gergo";
 
-  fonts.fontconfig.enable = true;
+        stateVersion = "24.05";
 
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+        packages = with pkgs; [ 
+            (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        ];
+    };
+
+    programs = {
+        home-manager.enable = true;
+        git.enable = true;
+    };
+
+    fonts.fontconfig.enable = true;
+
+    # Nicely reload system units when changing configs
+    systemd.user.startServices = "sd-switch";
 
 }
