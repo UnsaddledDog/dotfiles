@@ -8,9 +8,10 @@
 		../../modules/hyprland
 		../../modules/kitty
 		../../modules/waybar
-		#../../modules/hyprpaper
+		../../modules/hyprpaper
 		../../modules/rofi
 		../../modules/hyprlock
+		../../modules/zathura
 	];
 
     gtk = {

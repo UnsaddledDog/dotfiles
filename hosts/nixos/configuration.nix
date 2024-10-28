@@ -4,6 +4,7 @@
     imports = [
         ./hardware-configuration.nix
         ../../modules/gaming
+        ../../modules/kvm
     ];
 
     # Bootloader
@@ -76,15 +77,27 @@
 
     environment.systemPackages = with pkgs; [
         git wget curl ntfs3g os-prober
-        waybar /*hyprpaper*/ rofi-wayland hyprlock hyprcursor hyprpanel hyprpicker swww waypaper
-        tidal-hifi vesktop qbittorrent protonvpn-gui prismlauncher
-        gpustat gpu-screen-recorder nodePackages.peerflix yazi mpv yt-dlp
+        waybar hyprpaper rofi-wayland hyprlock hyprcursor hyprpanel hyprpicker swww waypaper
+        tidal-hifi vesktop qbittorrent protonvpn-gui prismlauncher anki
+        gpustat gpu-screen-recorder nodePackages.peerflix yazi mpv yt-dlp flameshot tdf
         inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     ];
 
     fonts.packages = with pkgs; [
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
+
+    fonts.fontconfig = {
+        antialias = true;
+        cache32Bit = true;
+        hinting.enable = true;
+        hinting.autohint = true;
+        defaultFonts = {
+            monospace = [ "Source Code Pro" ];
+            sansSerif = [ "Source Sans Pro" ];
+            serif = [ "Source Serif Pro" ];
+        };
+    };
 
     nix.settings = {
         experimental-features = [ "nix-command" "flakes" ];

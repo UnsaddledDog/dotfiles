@@ -96,6 +96,7 @@
                 "$mainMod, Q, killactive"
                 "$mainMod, DELETE, exit"
                 "$mainMod, BACKSPACE, exec, hyprlock"
+                "$mainMod, 0, exec, flameshot gui"
 
                 # switch focus
                 "$mainMod, H, movefocus, l"
@@ -149,6 +150,8 @@
 
         extraConfig = ''
             monitor=,2560x1440@165,0x0,1
+            
+            windowrulev2 = tile, title:(Minecraft)
         '';
     };
 }

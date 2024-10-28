@@ -27,6 +27,7 @@
             treesitter.enable = true;
             neo-tree.enable = true;
             comment.enable = true;
+            # indent-blankline.enable = true;
 
             lualine = {
                 enable = true;
