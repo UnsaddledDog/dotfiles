@@ -4,7 +4,7 @@
     imports = [
         inputs.nixvim.homeManagerModules.nixvim
         ../../modules/zsh
-        ../../modules/nvim
+        ../../modules/nixvim
     ];
 
     home = {

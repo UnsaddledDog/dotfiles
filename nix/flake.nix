@@ -37,18 +37,62 @@
         rose-pine-hyprcursor = {
             url = "github:ndom91/rose-pine-hyprcursor";
         };
+
+        nix-homebrew = {
+            url = "github:zhaofengli-wip/nix-homebrew";
+        };
+
+		neovim-nightly-overlay = {
+			url = "github:nix-community/neovim-nightly-overlay";
+		};
+
+		# vim-plugins = {
+		# 	url = "path:./modules/neovim/plugins";
+		# 	# inputs.nixpkgs.follows = "nixpkgs";
+		# };
+
+        # homebrew-core = {
+        #     url = "github:homebrew/homebrew-core";
+        #     flake = false;
+        # };
+        #
+        # homebrew-cask = {
+        #     url = "github:homebrew/homebrew-cask";
+        #     flake = false;
+        # };
+        #
+        # homebrew-bundle = {
+        #     url = "github:homebrew/homebrew-bundle";
+        #     flake = false;
+        # };
+        #
+        # homebrew-nikitabobko = {
+        #     url = "github:nikitabobko/aerospace";
+        #     flake = false;
+        # };
     };
 
-    outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, hyprland, hyprpanel, ... }@inputs: {
+    outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, hyprland, hyprpanel, nix-homebrew, neovim-nightly-overlay,
+        # homebrew-core, homebrew-cask, homebrew-bundle, homebrew-nikitabobko,
+        ... }@inputs: {
+
         darwinConfigurations.darwin = nix-darwin.lib.darwinSystem {
             system = "x86_64-darwin";
             modules = [
                 ./hosts/darwin/configuration.nix	
+
                 home-manager.darwinModules.home-manager {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
                     home-manager.users.gergo = import ./hosts/darwin/home.nix;
                     home-manager.extraSpecialArgs = { inherit inputs; };
+                }
+
+                nix-homebrew.darwinModules.nix-homebrew {
+                    nix-homebrew = {
+                        enable = true;
+                        user = "gergo";
+                    };
                 }
             ];
         };

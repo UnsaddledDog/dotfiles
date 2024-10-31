@@ -3,7 +3,7 @@
 {
     imports = [
 		inputs.nixvim.homeManagerModules.nixvim
-		../../modules/nvim
+		../../modules/nixvim
 		../../modules/zsh
 		../../modules/hyprland
 		../../modules/kitty
@@ -12,6 +12,7 @@
 		../../modules/rofi
 		../../modules/hyprlock
 		../../modules/zathura
+		../../modules/git
 	];
 
     gtk = {

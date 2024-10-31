@@ -45,6 +45,7 @@
         };
 
         extraPlugins = with pkgs.vimPlugins; [
+            roslyn-nvim
         ] ++ [
 		    /* (pkgs.vimUtils.buildVimPlugin {
                 pname = "tokyodark";
