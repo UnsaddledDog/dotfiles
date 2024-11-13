@@ -1,24 +1,46 @@
-{ pkgs, inputs, ... }: {
-	# programs.neovim = {
-	# 	enable = true;
-	# 	vimAlias = true;
-	#	package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-	# };
+{ pkgs, inputs, ... }:
+{
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+  };
 
-	home.packages = with pkgs; [
-		neovim
-		tree-sitter
-		gcc
-		gnumake
-		unzip
-		luarocks
-		nodejs_22
-		lua
-		wget
-	];
+  home.packages = with pkgs; [
+    # Language servers
+    lua-language-server
+    nil
+    roslyn-ls
+    csharp-ls
+    glsl_analyzer
+    # omnisharp-roslyn
 
-	home.file."./.config/nvim/" = {
-		source = ./nvim;
-		recursive = true;
-    };
+    # Formatters
+    stylua
+    prettierd
+    shfmt
+    csharpier
+    nixfmt-rfc-style
+
+    # Dependencies
+    tree-sitter
+    gcc
+    gnumake
+    unzip
+    luarocks
+    nodejs_22
+    lua
+    wget
+    fd
+    cargo
+    gzip
+    gnutar
+    fzf
+
+    dotnet-sdk_8
+  ];
+
+  #home.file."./.config/nvim/" = {
+  #	source = ./nvim;
+  #	recursive = true;
+  #  };
 }

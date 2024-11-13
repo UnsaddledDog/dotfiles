@@ -6,4 +6,7 @@ require("lazy").setup({
 	require("plugins/telescope"),
 	require("plugins/lsp"),
 	require("plugins/cmp"),
+	require("plugins/autopairs"),
+	require("plugins/conform"),
+	require("plugins/lualine"),
 })
