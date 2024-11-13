@@ -46,6 +46,10 @@
 			url = "github:nix-community/neovim-nightly-overlay";
 		};
 
+        inputs.nixos-hardware = {
+            url = "github:NixOS/nixos-hardware/master";
+        };
+
 		# vim-plugins = {
 		# 	url = "path:./modules/neovim/plugins";
 		# 	# inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +77,7 @@
     };
 
     outputs = { self, nix-darwin, nixpkgs, home-manager, nixvim, hyprland, hyprpanel, nix-homebrew, neovim-nightly-overlay,
+        nixos-hardware,
         # homebrew-core, homebrew-cask, homebrew-bundle, homebrew-nikitabobko,
         ... }@inputs: {
 
@@ -94,6 +99,14 @@
                         user = "gergo";
                     };
                 }
+            ];
+        };
+
+        nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            modules = [
+                ./hosts/isoimage/configuration.nix
+                nixos-hardware.nixosModules.apple-macbook-pro-14-1
             ];
         };
 
