@@ -46,7 +46,7 @@
 			url = "github:nix-community/neovim-nightly-overlay";
 		};
 
-        inputs.nixos-hardware = {
+        nixos-hardware = {
             url = "github:NixOS/nixos-hardware/master";
         };
 
@@ -107,6 +107,24 @@
             modules = [
                 ./hosts/isoimage/configuration.nix
                 nixos-hardware.nixosModules.apple-macbook-pro-14-1
+            ];
+        };
+
+        nixosConfigurations.mac = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {inherit inputs;};
+            modules = [
+                nixos-hardware.nixosModules.apple-macbook-pro-14-1
+                ./hosts/mac/configuration.nix
+                #./overlays
+                #home-manager.nixosModules.home-manager {
+                #    home-manager = {
+                #        useGlobalPkgs = true;
+                #        useUserPackages = true;
+                #        users.gergo = import ./hosts/nixos/home.nix;
+                #        extraSpecialArgs = { inherit inputs; };
+                #    };
+                #}
             ];
         };
 
