@@ -3,13 +3,13 @@ vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.virtualedit = "block"
 
 vim.opt.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
@@ -37,3 +37,8 @@ vim.opt.inccommand = "split"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+vim.opt.wrap = false
+
+vim.opt.ignorecase = true
+vim.opt.termguicolors = true

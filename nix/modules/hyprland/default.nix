@@ -65,16 +65,19 @@
 
             master = {
                 new_status = "master";
-                no_gaps_when_only = false;
+                # no_gaps_when_only = false;
             };
+
 
             decoration = {
                 rounding = 3;
 
-                drop_shadow = true;
-                shadow_range = 60;
-                shadow_render_power = 4;
-                "col.shadow" = "rgba(1a1a1aee)";
+                shadow = {
+                    enabled = true;
+                    range = 60;
+                    render_power = 4;
+                    color = "rgba(1a1a1aee)";
+                };
 
                 blur = {
                     enabled = false;
@@ -82,6 +85,22 @@
                     passes = 1;
                 };
             };
+
+            # decoration = {
+            #     rounding = 3;
+            #
+            #     shadow = true;
+            #     range = 60;
+            #     render_power = 4;
+            #     # "col.shadow" = "rgba(1a1a1aee)";
+            #     color = "rgba(1a1a1aee)";
+            #
+            #     blur = {
+            #         enabled = false;
+            #         size = 3;
+            #         passes = 1;
+            #     };
+            # };
 
             animations = {
                 enabled = false;

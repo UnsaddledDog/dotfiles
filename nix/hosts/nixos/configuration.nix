@@ -80,6 +80,7 @@
         waybar hyprpaper rofi-wayland hyprlock hyprcursor hyprpanel hyprpicker swww waypaper
         tidal-hifi vesktop qbittorrent protonvpn-gui prismlauncher anki
         gpustat gpu-screen-recorder nodePackages.peerflix yazi mpv yt-dlp flameshot tdf
+		wl-clipboard
         inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     ];
 

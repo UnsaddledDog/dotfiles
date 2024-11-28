@@ -12,7 +12,8 @@
     roslyn-ls
     csharp-ls
     glsl_analyzer
-    # omnisharp-roslyn
+
+    omnisharp-roslyn
 
     # Formatters
     stylua
@@ -35,6 +36,7 @@
     gzip
     gnutar
     fzf
+	ripgrep
 
     dotnet-sdk_8
   ];
