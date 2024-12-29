@@ -1,0 +1,13 @@
+require("lazy").setup({
+	require("plugins/treesitter"),
+	require("plugins/telescope"),
+	require("plugins/lspconfig"),
+	require("plugins/mellow"),
+	require("plugins/transparent"),
+	require("plugins/comment"),
+	require("plugins/cmp"),
+	require("plugins/autopairs"),
+	require("plugins/conform"),
+	require("plugins/neo-tree"),
+	require("plugins/lualine"),
+})
