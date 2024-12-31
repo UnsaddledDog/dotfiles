@@ -15,7 +15,7 @@
   system.defaults = {
     dock = {
       autohide = true;
-      expose-group-by-app = true;
+      expose-group-apps = true;
       magnification = false;
       mru-spaces = false;
       show-recents = false;
@@ -62,7 +62,7 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   environment.systemPackages = with pkgs; [
