@@ -3,12 +3,10 @@
     enable = true;
     casks = [
       #"nikitabobko/tap/aerospace"
-      #"arc"
       "firefox"
       "anki"
       "appcleaner"
-      # "zen-browser"
-      "iterm2"
+      "ghostty"
       "spotify"
       "tidal"
       "notion"
@@ -32,6 +30,10 @@
     taps = [
       # "nikitabobko/tap"
     ];
-    onActivation.cleanup = "zap";
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
   };
 }

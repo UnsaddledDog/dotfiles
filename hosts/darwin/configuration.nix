@@ -22,14 +22,12 @@
       tilesize = 48;
       persistent-apps = [
         "/System/Applications/Launchpad.app/"
-        #"/Applications/Arc.app/"
         "/Applications/Firefox.app/"
         "/Applications/TIDAL.app/"
         "/Applications/Spotify.app/"
         "/Applications/rekordbox 7/rekordbox.app/"
         "/Applications/Ableton Live 12 Suite.app/"
-        #"/Applications/ElementNote.app/"
-        "/Applications/iTerm.app/"
+        "/Applications/Ghostty.app/"
         "/Applications/Anki.app/"
         "/Applications/Notion.app/"
         "/System/Applications/System Settings.app/"
@@ -67,10 +65,9 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  environment.systemPackages =
-    with pkgs;
-    [
-    ];
+  environment.systemPackages = with pkgs; [
+    tidal-dl
+  ];
 
   # It's not enough to enable zsh in home manager
   programs.zsh.enable = true;

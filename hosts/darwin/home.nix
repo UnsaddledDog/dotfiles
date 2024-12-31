@@ -21,10 +21,10 @@
       ];
   };
 
-  xdg.configFile."aerospace" = {
-    recursive = true;
-    source = ../../../config/aerospace;
-  };
+  # xdg.configFile."aerospace" = {
+  #   recursive = true;
+  #   source = ../../../config/aerospace;
+  # };
 
   programs = {
     home-manager.enable = true;
