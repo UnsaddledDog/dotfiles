@@ -21,6 +21,11 @@
       ];
   };
 
+  xdg.configFile."ghostty" = {
+    recursive = true;
+    source = ../../modules/ghostty/darwin;
+  };
+
   # xdg.configFile."aerospace" = {
   #   recursive = true;
   #   source = ../../../config/aerospace;

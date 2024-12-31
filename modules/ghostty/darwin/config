@@ -1,0 +1,18 @@
+theme = mellow
+
+font-family = "JetBrainsMono NFM SemiBold"
+font-size = 16
+
+background-opacity = 0.9
+background-blur-radius = 20
+
+window-padding-x = 12
+window-padding-y = 12
+
+window-width = 165
+window-height = 45
+
+macos-icon = custom-style
+macos-icon-ghost-color = #393939
+macos-icon-screen-color = #1a1a1a
+macos-icon-frame = aluminum
