@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/dev
+    #../../modules/dev
     ../../modules/gaming
     ../../modules/kvm
   ];
@@ -175,5 +175,5 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

@@ -53,7 +53,7 @@
     username = "gergo";
     homeDirectory = "/home/gergo";
 
-    stateVersion = "24.05";
+    stateVersion = "24.11";
 
     packages = with pkgs; [
       rose-pine-icon-theme
