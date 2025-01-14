@@ -69,8 +69,6 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-    ];
   };
 
   # Install firefox.
@@ -107,6 +105,9 @@
     tdf
     wl-clipboard
     teams-for-linux
+    ghostty
+    gowall
+    spotify
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
 

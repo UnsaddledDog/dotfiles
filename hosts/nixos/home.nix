@@ -8,6 +8,7 @@
     ../../modules/zsh
     ../../modules/hyprland
     ../../modules/kitty
+    ../../modules/ghostty/nixos
     ../../modules/waybar
     ../../modules/hyprpaper
     ../../modules/rofi

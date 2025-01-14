@@ -2,7 +2,8 @@ require("lazy").setup({
 	require("plugins/treesitter"),
 	require("plugins/telescope"),
 	require("plugins/lspconfig"),
-	require("plugins/mellow"),
+	-- require("plugins/mellow"),
+	require("plugins/rose-pine"),
 	require("plugins/transparent"),
 	require("plugins/comment"),
 	require("plugins/cmp"),
@@ -10,4 +11,5 @@ require("lazy").setup({
 	require("plugins/conform"),
 	require("plugins/neo-tree"),
 	require("plugins/lualine"),
+	require("plugins/colorizer"),
 })

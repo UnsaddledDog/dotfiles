@@ -75,7 +75,7 @@
         rounding = 3;
 
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 60;
           render_power = 4;
           color = "rgba(1a1a1aee)";
@@ -111,7 +111,7 @@
       bind = [
         #"$mainMod, F1, exec, show-keybinds"
 
-        "$mainMod, RETURN, exec, kitty"
+        "$mainMod, RETURN, exec, ghostty"
         "$mainMod, E, exec, nautilus"
         "$mainMod, SPACE, exec, rofi -show drun"
         "$mainMod, Q, killactive"
