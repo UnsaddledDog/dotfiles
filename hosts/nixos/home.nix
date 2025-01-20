@@ -16,6 +16,7 @@
     ../../modules/zathura
     ../../modules/git
     ../../modules/dev
+    ../../modules/discord
   ];
 
   gtk = {

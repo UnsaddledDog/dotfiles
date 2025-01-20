@@ -38,7 +38,7 @@
         kb_layout = "us, hu";
         kb_options = "grp:alt_space_toggle";
         follow_mouse = 1;
-        sensitivity = -0.5;
+        sensitivity = -0.68;
       };
 
       general = {
@@ -117,7 +117,7 @@
         "$mainMod, Q, killactive"
         "$mainMod, DELETE, exit"
         "$mainMod, BACKSPACE, exec, hyprlock"
-        "$mainMod, 0, exec, flameshot gui"
+        "$mainMod SHIFT, S, exec, ~/dotfiles/scripts/screenshot.sh"
 
         # switch focus
         "$mainMod, H, movefocus, l"

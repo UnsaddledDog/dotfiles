@@ -52,7 +52,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -101,13 +101,17 @@
     yazi
     mpv
     yt-dlp
-    flameshot
     tdf
     wl-clipboard
+    grim
+    slurp
+    swappy
     teams-for-linux
     ghostty
     gowall
     spotify
+    protontricks
+    freetube
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
 
@@ -155,6 +159,9 @@
 
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
+
+    # Font stuff
+    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
   };
 
   # Enable OpenRGB
