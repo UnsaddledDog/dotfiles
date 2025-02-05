@@ -3,19 +3,32 @@
 {
   imports = [
     ./hardware-configuration.nix
-    #../../modules/dev
     ../../modules/gaming
     ../../modules/kvm
   ];
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # vpn
+  services.mullvad-vpn.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Budapest";
@@ -92,13 +105,11 @@
     tidal-hifi
     vesktop
     qbittorrent
-    protonvpn-gui
     prismlauncher
     anki
     gpustat
     gpu-screen-recorder
     nodePackages.peerflix
-    yazi
     mpv
     yt-dlp
     tdf
@@ -111,8 +122,22 @@
     gowall
     spotify
     protontricks
-    freetube
+    caprine
+    tmux
+    gpu-screen-recorder
+    p7zip
+    jq
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    wine
+    winetricks
+    mullvad-vpn
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+    libunwind
   ];
 
   fonts.packages = with pkgs; [

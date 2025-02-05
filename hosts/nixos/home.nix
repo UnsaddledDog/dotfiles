@@ -13,10 +13,11 @@
     ../../modules/hyprpaper
     ../../modules/rofi
     ../../modules/hyprlock
-    ../../modules/zathura
+    # ../../modules/zathura
     ../../modules/git
     ../../modules/dev
     ../../modules/discord
+    ../../modules/tmux
   ];
 
   gtk = {

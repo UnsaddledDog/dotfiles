@@ -9,8 +9,12 @@
     # Language servers
     lua-language-server
     nil
-    # glsl_analyzer
+    glsl_analyzer
     csharp-ls
+    cmake-language-server
+    clang-tools
+    csslint
+    vscode-langservers-extracted
 
     # Formatters
     stylua

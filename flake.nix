@@ -49,6 +49,7 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
+
   };
 
   outputs =
@@ -65,7 +66,38 @@
       nixos-hardware,
       ...
     }@inputs:
+    let
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+    in
     {
+
+      devShells = {
+        x86_64-linux = {
+          opengl = pkgs.mkShell {
+            packages = with pkgs; [
+              cmake
+              sdl3
+              SDL2
+              SDL2_image
+              glm
+              glew
+              imgui
+              libpng
+            ];
+            shellHook = ''
+              export CMAKE_PREFIX_PATH="${nixpkgs.legacyPackages.x86_64-linux.glm}/lib/cmake:$CMAKE_PREFIX_PATH"
+              export CMAKE_INCLUDE_PATH="${nixpkgs.legacyPackages.x86_64-linux.glm}/include:$CMAKE_INCLUDE_PATH"
+              export GLM_DIR="${nixpkgs.legacyPackages.x86_64-linux.glm}/lib/cmake"
+              echo "OpenGL DevShell Ready!"
+              exec zsh
+            '';
+            nativeBuildInputs = with pkgs; [
+              cmake
+              pkg-config
+            ];
+          };
+        };
+      };
 
       darwinConfigurations.darwin = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
