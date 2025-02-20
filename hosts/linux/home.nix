@@ -4,7 +4,8 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ../../modules/zsh
-    ../../modules/nixvim
+    # ../../modules/nixvim
+    ../../modules/neovim
   ];
 
   home = {
@@ -14,9 +15,19 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      ghostty
     ];
   };
+
+  xdg.configFile."ghostty" = {
+    recursive = true;
+    source = ../../modules/ghostty/nixos;
+  };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 
   programs = {
     home-manager.enable = true;
