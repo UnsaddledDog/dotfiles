@@ -1,12 +1,13 @@
 --------------------
 | basic navigation |
 --------------------
-file-tree		   : \
-move focus left	   : ctrl + h
-move focus right   : ctrl + l
-move focus up	   : ctrl + k
-move focus down	   : ctrl + j
-open quickfix list : space + q
+file-tree				: \
+move focus left			: ctrl + h
+move focus right		: ctrl + l
+move focus up			: ctrl + k
+move focus down			: ctrl + j
+open quickfix list		: space + q
+split window vertically	: ctrl + wv
 
 -----------
 | comment |
