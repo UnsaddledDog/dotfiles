@@ -131,6 +131,10 @@
     wine
     winetricks
     mullvad-vpn
+    blender
+    ollama
+    dbeaver-bin
+    unityhub
   ];
 
   programs.nix-ld.enable = true;

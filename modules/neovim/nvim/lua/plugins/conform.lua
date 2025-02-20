@@ -8,11 +8,17 @@ return {
 					lsp_format = "fallback",
 					timeout_ms = 500,
 				},
+				formatters = {
+					clang_format = {
+						command = "clang-format",
+						args = { "--style={BasedOnStyle: Google, TabWidth: 4, IndentWidth: 4}" },
+					},
+				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					nix = { "nixfmt" },
-					c = { "clang-format" },
-					cpp = { "clang-format" },
+					c = { "clang_format" },
+					cpp = { "clang_format" },
 					csharp = { "csharpier" },
 					bash = { "shfmt" },
 					cmake = { "cmake_format" },
