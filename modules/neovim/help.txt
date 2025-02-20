@@ -1,0 +1,54 @@
+--------------------
+| basic navigation |
+--------------------
+file-tree		   : \
+move focus left	   : ctrl + h
+move focus right   : ctrl + l
+move focus up	   : ctrl + k
+move focus down	   : ctrl + j
+open quickfix list : space + q
+
+-----------
+| comment |
+-----------
+single-line comment : gcc
+multi-line comment  : gcd
+
+-------------------
+| completion menu |
+-------------------
+confirm	: tab
+go down	: ctrl + j
+go up	: ctrl + k
+
+---------------------------
+| highlight based actions |
+---------------------------
+move highlighted text up		 : K
+move highlighted text down		 : J
+paste without overwriting buffer : space + p
+
+-------------------------
+| incremental selection |
+-------------------------
+init selection	   : space + v
+increase selection : tab
+decrease selection : shift + tab
+
+----------------------
+| specific selection |
+----------------------
+select outer part of a function		: {some action e.g. d|v} + af
+select inner part of a function		: {some action e.g. d|v} + if
+select outer part of a class region	: {some action e.g. d|v} + ac
+select inner part of a class region	: {some action e.g. d|v} + ic
+
+----------
+| search |
+----------
+search within builtin keymaps : space + sk
+search files				  : space + sf
+search word (live grep)		  : space + sg
+search diagnostics			  : space + sd
+search recent files			  : space + s.
+search in neovim config		  : space + sn
