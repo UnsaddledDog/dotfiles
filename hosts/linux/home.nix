@@ -15,8 +15,8 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       ghostty
+      nerd-fonts.jetbrains-mono
     ];
 
     # fonts.packages = with pkgs; [
