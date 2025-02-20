@@ -34,6 +34,12 @@
     git.enable = true;
   };
 
+  # Enable flakes
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   fonts.fontconfig.enable = true;
 
   # Nicely reload system units when changing configs
