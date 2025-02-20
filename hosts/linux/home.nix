@@ -15,13 +15,13 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
-      # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       ghostty
     ];
 
-    fonts.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-    ];
+    # fonts.packages = with pkgs; [
+    #   nerd-fonts.jetbrains-mono
+    # ];
   };
 
   xdg.configFile."ghostty" = {
