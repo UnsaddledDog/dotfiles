@@ -15,13 +15,8 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
-      ghostty
       nerd-fonts.jetbrains-mono
     ];
-
-    # fonts.packages = with pkgs; [
-    #   nerd-fonts.jetbrains-mono
-    # ];
   };
 
   xdg.configFile."ghostty" = {
@@ -33,12 +28,6 @@
     home-manager.enable = true;
     git.enable = true;
   };
-
-  # Enable flakes
-  # nix.settings.experimental-features = [
-  #   "nix-command"
-  #   "flakes"
-  # ];
 
   fonts.fontconfig.enable = true;
 
