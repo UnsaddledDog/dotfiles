@@ -26,6 +26,7 @@
       "qbittorrent"
       "upscayl"
       "rectangle"
+      "adobe-creative-cloud"
     ];
     taps = [
       # "nikitabobko/tap"

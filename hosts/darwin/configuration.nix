@@ -28,7 +28,8 @@
         "/Applications/rekordbox 7/rekordbox.app/"
         "/Applications/Ableton Live 12 Suite.app/"
         "/Applications/Ghostty.app/"
-        "/Applications/Anki.app/"
+        "/Applications/Notability.app"
+        "/Applications/Anki.apP/"
         "/Applications/Notion.app/"
         "/System/Applications/System Settings.app/"
       ];
@@ -51,7 +52,7 @@
     "flakes"
   ];
 
-  # Allow unfree packages  
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Set user
@@ -67,6 +68,7 @@
 
   environment.systemPackages = with pkgs; [
     tidal-dl
+    nodePackages.peerflix
   ];
 
   # It's not enough to enable zsh in home manager
