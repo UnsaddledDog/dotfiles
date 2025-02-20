@@ -21,7 +21,7 @@
 
   xdg.configFile."ghostty" = {
     recursive = true;
-    source = ../../modules/ghostty/nixos;
+    source = ../../modules/ghostty/linux;
   };
 
   programs = {
