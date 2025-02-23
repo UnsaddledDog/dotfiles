@@ -28,6 +28,16 @@ return {
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
+
+			-- local omnisharp_path = vim.fn.systemlist("find /nix/store/ -name 'OmniSharp.dll'")[1]
+			local omnisharp_path =
+				"/nix/store/j6ivq25cfr2ixrhh7ygngm0rvb75fid5-omnisharp-roslyn-1.39.13/lib/omnisharp-roslyn/OmniSharp.dll"
+			require("lspconfig").omnisharp.setup({
+				-- cmd = { "dotnet", omnisharp_path },
+				cmd = { "mono", "--assembly-loader=strict", omnisharp_path },
+				on_attach = on_attach,
+				use_mono = true,
+			})
 		end,
 	},
 }

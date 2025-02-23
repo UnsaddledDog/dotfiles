@@ -15,6 +15,7 @@
     clang-tools
     csslint
     vscode-langservers-extracted
+    omnisharp-roslyn
 
     # Formatters
     stylua
@@ -38,6 +39,9 @@
     gnutar
     fzf
     ripgrep
+    dotnet-sdk
+    mono
+    vscode
   ];
 
   home.file."./.config/nvim/" = {
