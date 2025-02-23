@@ -135,6 +135,10 @@
     ollama
     dbeaver-bin
     unityhub
+    fontconfig
+    freetype
+    dejavu_fonts
+    liberation_ttf
   ];
 
   programs.nix-ld.enable = true;
