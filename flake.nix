@@ -81,8 +81,16 @@
               SDL2_image
               glm
               glew
-              imgui
               libpng
+              (pkgs.imgui.overrideAttrs (oldAttrs: {
+                src = pkgs.fetchFromGitHub {
+                  owner = "ocornut";
+                  repo = "imgui";
+                  # rev = "v1.91.4"; # Alternatively, use a specific commit hash
+                  rev = "6e29450";
+                  sha256 = "sha256-alAtjMrGRPZ8EBGLxlKZ+cBBqtdkDXVPU9uT87XfZ+E=";
+                };
+              }))
             ];
             shellHook = ''
               export CMAKE_PREFIX_PATH="${nixpkgs.legacyPackages.x86_64-linux.glm}/lib/cmake:$CMAKE_PREFIX_PATH"

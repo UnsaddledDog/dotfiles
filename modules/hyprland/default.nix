@@ -28,6 +28,10 @@
         "XCURSOR_SIZE, 24"
         # "WLR_NO_HARDWARE_CURSORS,1"
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        # "LIBVA_DRIVER_NAME,nvidia"
+        # "XDG_SESSION_TYPE,wayland"
+        # "GBM_BACKEND,nvidia-drm"
+        # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
 
       exec-once = [
@@ -170,9 +174,12 @@
     };
 
     extraConfig = ''
-      monitor=,2560x1440@165,0x0,1
+            monitor=,2560x1440@165,0x0,1
 
-      windowrulev2 = tile, title:(Minecraft)
+            windowrulev2 = tile, title:(Minecraft)
+      	  cursor {
+      		no_hardware_cursors = true
+      	  }
     '';
   };
 }
